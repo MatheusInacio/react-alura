@@ -1,10 +1,10 @@
 import React from "react";
 import "./Colaborador.css";
 
-export default function Colaborador({nome, imagem, cargo}) {
+export default function Colaborador({ nome, imagem, cargo, corDeFundo, corSecudaria}) {
   return (
     <div className="colaborador">
-      <div className="cabecalho">
+      <div className="cabecalho" style={{ backgroundColor: corDeFundo }}>
         <img src={imagem} alt={nome} />
       </div>
       <div className="rodape">
