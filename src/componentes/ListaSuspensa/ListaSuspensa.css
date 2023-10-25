@@ -12,3 +12,7 @@
     margin-bottom: 8px;
     font-size: 24px;
 }
+
+.lista-suspensa label {
+    display: flex;
+}
