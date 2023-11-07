@@ -8,13 +8,13 @@ export default function index(props) {
     <section className="time" style={{ backgroundImage: 'url(/imagens/fundo.png)', backgroundColor: hexToRgba(props.corSecundaria, '0.6')}}>
       <div className="input-cor">
         <input
-          onChange={(evento) => props.mudarCorPrimaria(evento.target.value, props.nome)}
+          onChange={(evento) => props.mudarCorPrimaria(evento.target.value, props.id)}
           value={props.corPrimaria}
           type="color"
           className="input-cor-primaria"
         />
         <input
-          onChange={(evento) => props.mudarCorSecundaria(evento.target.value, props.nome)}
+          onChange={(evento) => props.mudarCorSecundaria(evento.target.value, props.id)}
           value={props.corSecundaria}
           type="color"
           className="input-cor-secundaria"
@@ -26,11 +26,12 @@ export default function index(props) {
           <Colaborador
             corSecudaria={props.corSecundaria}
             corDeFundo={props.corPrimaria}
-            key={index}
+            key={colaborador.id}
             nome={colaborador.nome}
             cargo={colaborador.cargo}
             imagem={colaborador.imagem}
             aoDeletar={props.aoDeletar}
+            id={colaborador.id}
           />
         ))}
       </div>

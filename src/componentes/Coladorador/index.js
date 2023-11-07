@@ -8,10 +8,16 @@ export default function Colaborador({
   cargo,
   corDeFundo,
   aoDeletar,
+  id
 }) {
   return (
     <div className="colaborador">
-      <AiFillCloseCircle size={25} color="#fff" className="deletar" onClick={aoDeletar} />
+      <AiFillCloseCircle
+        size={25}
+        color="#fff"
+        className="deletar"
+        onClick={() => aoDeletar(id)}
+      />
       <div className="cabecalho" style={{ backgroundColor: corDeFundo }}>
         <img src={imagem} alt={nome} />
       </div>
