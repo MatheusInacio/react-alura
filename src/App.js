@@ -49,6 +49,7 @@ function App() {
   const inicial = [
     {
       id: uuidv4(),
+      favorito: false,
       nome: "GUILHERME LIMA",
       cargo: "Desenvolvedor Python e JavaScript na Alura",
       imagem:
@@ -73,6 +74,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "DANIEL ARTINE",
       cargo: "Engenheiro de Software na Stone Age",
       imagem:
@@ -81,6 +83,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "GUILHERME LIMA",
       cargo: "Desenvolvedor Python e JavaScript na Alura",
       imagem:
@@ -89,6 +92,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "JULIANA AMOASEI",
       cargo: "Desenvolvedora de software e instrutora",
       imagem:
@@ -97,6 +101,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "DANIEL ARTINE",
       cargo: "Engenheiro de Software na Stone Age",
       imagem:
@@ -105,6 +110,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "GUILHERME LIMA",
       cargo: "Desenvolvedor Python e JavaScript na Alura",
       imagem:
@@ -113,6 +119,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "PAULO SILVEIRA",
       cargo: "Hipster e CEO da Alura",
       imagem:
@@ -121,6 +128,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "JULIANA AMOASEI",
       cargo: "Desenvolvedora de software e instrutora",
       imagem:
@@ -129,6 +137,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "GUILHERME LIMA",
       cargo: "Desenvolvedor Python e JavaScript na Alura",
       imagem:
@@ -137,6 +146,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "PAULO SILVEIRA",
       cargo: "Hipster e CEO da Alura",
       imagem:
@@ -145,6 +155,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "DANIEL ARTINE",
       cargo: "Engenheiro de Software na Stone Age",
       imagem:
@@ -153,6 +164,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "GUILHERME LIMA",
       cargo: "Desenvolvedor Python e JavaScript na Alura",
       imagem:
@@ -161,6 +173,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "PAULO SILVEIRA",
       cargo: "Hipster e CEO da Alura",
       imagem:
@@ -169,6 +182,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "JULIANA AMOASEI",
       cargo: "Desenvolvedora de software e instrutora",
       imagem:
@@ -177,6 +191,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "DANIEL ARTINE",
       cargo: "Engenheiro de Software na Stone Age",
       imagem:
@@ -185,6 +200,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "PAULO SILVEIRA",
       cargo: "Hipster e CEO da Alura",
       imagem:
@@ -193,6 +209,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "MATHEUS INÁCIO",
       cargo: "Desenvolvedor/Professor",
       imagem: "https://github.com/MatheusInacio.png",
@@ -234,8 +251,25 @@ function App() {
     );
   }
 
-  function cadastrarTime({ nome, cor }) {
-    setTimes([...times, { nome, cor, id: uuidv4() }]);
+  function cadastrarTime({ nome, corPrimaria, corSecundaria }) {
+    setTimes([
+      ...times,
+      {
+        nome,
+        corPrimaria: corPrimaria,
+        id: uuidv4(),
+        corSecundaria: corSecundaria,
+      },
+    ]);
+  }
+
+  function resolverFavorito(id) {
+    setColaboradores(
+      colaboradores.map((colaborador) => {
+        if (colaborador.id === id) colaborador.favorito = !colaborador.favorito;
+        return colaborador;
+      })
+    );
   }
 
   return (
@@ -250,6 +284,7 @@ function App() {
       />
       {times.map((time) => (
         <Time
+          aoFavoritar={resolverFavorito}
           key={time.id}
           nome={time.nome}
           corPrimaria={time.corPrimaria}
@@ -263,7 +298,7 @@ function App() {
           id={time.id}
         />
       ))}
-      <Rodape />  
+      <Rodape />
     </div>
   );
 }

@@ -32,6 +32,8 @@ export default function index(props) {
             imagem={colaborador.imagem}
             aoDeletar={props.aoDeletar}
             id={colaborador.id}
+            favorito={colaborador.favorito}
+            aoFavoritar={props.aoFavoritar}
           />
         ))}
       </div>
